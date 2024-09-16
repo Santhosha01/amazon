@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('images/products/bd-background.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px; 
+}
+
+.header h1 {
+  color: rgb(15, 15, 218);
+  font-size: 50px; 
+}
+
+.login-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  min-height: 300px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-wrapper {
+  text-align: center;
+}
+
+.content {
+  color:#ff6347;
+}
+input{
+  font-size: 22px;
+  margin-bottom: 40px; 
+}
+.welcome-text {
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+
+/* Button Styling */
+.button {
+  background-color: #001F3F;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: rgba(15, 15, 218, 0.8);
+}
+
+   </style>
+</head>
+<body>
+  <header class="header bd">
+    <h1>Happy Birthday Pearl</h1>
+  </header>
+  <div class="login-container">
+    <div class="form-wrapper">
+      <div class="content">
+        <h2 class="welcome-text text">Welcome Birthday Girl</h2>
+        <button class="button">Click Here</button>
+      </div>
+    </div>
+  </div>
+<script>
+const arrays = [
+      'Happy Birthday! May your day be as bright and beautiful as you are',
+      'Wishing you a day filled with love, joy, and all the things that make you smile',
+      'May your birthday be the start of a year filled with good luck, good health, and much happiness',
+      'Another year older, another year wiser. May your journey ahead be filled with amazing adventures and endless opportunities',
+      'I Wish, This year will be your best year'
+    ];
+
+    let currentIndex = 0;
+    const button = document.querySelector('.button');
+    let isInputVisible = false;
+
+    button.addEventListener('click', function() {
+      if (!isInputVisible) {
+        currentIndex = (currentIndex + 1) % arrays.length;
+        document.querySelector('.text').innerHTML = arrays[currentIndex];
+        
+        if (currentIndex === arrays.length - 1) {
+          
+          replaceH1WithInput();
+          isInputVisible=true;
+        }
+      }
+      else{
+        getinputvalue();
+      }
+    });
+
+    function replaceH1WithInput() {
+      const header = document.querySelector('.text');
+      if (header) {
+        const input = document.createElement('input');
+        input.type = 'password';
+        input.placeholder='Enter the Password';
+        
+        header.parentNode.replaceChild(input, header);
+      }
+    }
+    function getinputvalue(){
+      const input = document.querySelector('input');
+      const inputValue = input.value.trim();
+        if (inputValue==="mutta kanni") {
+          window.location.assign('amazon.html');  
+        } else {
+          alert('Incorrect Password! Kedi');
+        }
+        input.value='';
+    }
+
+
+</script>
+</body>
+</html>
